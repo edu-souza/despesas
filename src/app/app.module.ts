@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ImportarModule } from './importar/importar.module';
 import { HomeModule } from './home/home.module';
 import { MovimentosModule } from './movimentos/movimentos.module';
+import { RelatoriosModule } from './relatorios/relatorios.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { MovimentosModule } from './movimentos/movimentos.module';
     HttpClientModule,
     AppRoutingModule,
     ImportarModule,
+    RelatoriosModule,
     HomeModule
   ],
   providers: [],

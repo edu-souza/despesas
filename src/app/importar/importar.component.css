@@ -1,0 +1,10 @@
+/* *{
+    outline: red 1px solid;
+} */
+
+
+.bg{
+    background: url("../../assets/images/importar-bg.png") no-repeat right;
+    height: 100vh;
+    /* background-color: aqua; */
+}

@@ -1,1 +1,16 @@
-<po-page-default p-title="Dashboard" [p-breadcrumb]="breadcrumb"><po-page-default/>
+<po-page-default p-title="Dashboard" [p-breadcrumb]="breadcrumb">
+  <po-container class="po-lg-12">
+		<div class="flex">
+			<po-chart
+			[p-series]="[
+				{ label: 'Mercado', data: 30 },
+				{ label: 'Energia', data: 70 }]"
+			></po-chart>
+			<po-chart
+			[p-series]="[
+				{ label: 'Internet', data: 60 },
+				{ label: 'Gasolina', data: 40 }]"
+			></po-chart>
+		</div>
+		</po-container>
+<po-page-default/>

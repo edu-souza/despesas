@@ -1,53 +1,33 @@
 import { PoBreadcrumb } from '@po-ui/ng-components';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PoTableColumn } from '@po-ui/ng-components';
+import { MovimentosService } from './services/movimentos.service';
+import { MovimentosInterface } from './interface/movimentos';
 
 @Component({
   selector: 'app-movimentos',
   templateUrl: './movimentos.component.html',
   styleUrls: ['./movimentos.component.css']
 })
-export class MovimentosComponent {
-  // columns : Array<PoTableColumn> = [
-  // { property: 'code', type: 'number', width: '8%' },
-  // { property: 'product' },
-  // { property: 'customer' }]
-
-  // items : Array<any> = [
-  //   {
-  //     code: 1200,
-  //     product: 'Rice',
-  //     customer: 'Angeloni',
-  //   }
-  // ]
-
+export class MovimentosComponent implements OnInit {
   columns : Array<PoTableColumn> = [
     { property: 'tipo'},
     { property: 'descricao'},
     { property: 'valor',type: 'number' }
   ];
 
-  items : Array<any> = [
-    {
-      tipo: 'Despesa',
-      descricao: 'Água',
-      valor: 13,
-    },
-    {
-      tipo: 'Despesa',
-      descricao: 'Internet',
-      valor: 100.00,
-    },
-    {
-      tipo: 'Receita',
-      descricao: 'Salário',
-      valor: 1500.00,
-    }
-  ]
+  constructor(private movimentosService : MovimentosService){}
+
+  items : Array<MovimentosInterface> = [];
+
+  ngOnInit():void{
+    this.movimentosService.getMovimentos().subscribe((response) => this.items = response.map((item:MovimentosInterface) => {
+      return item.tipo === 'D' ? { ...item, tipo: 'Despesa' } : { ...item, tipo: 'Receita' };
+    }));
+  }
 
   public readonly breadcrumb: PoBreadcrumb = {
     items: [{ label: 'Home', link: '/' }, { label: 'Movimentos' }]
   };
 
- 
 }

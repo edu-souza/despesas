@@ -1,0 +1,22 @@
+{
+    "movimentos": [
+      {
+        "id": "0",
+        "tipo": "D",
+        "descricao": "Energia",
+        "valor": 70.00
+      },
+      {
+        "id": "1",
+        "tipo": "D",
+        "descricao": "Internet",
+        "valor": 102.00
+      },
+      {
+        "id": "2",
+        "tipo": "R",
+        "descricao": "Salário",
+        "valor": 2000.00
+      }
+    ]
+}
